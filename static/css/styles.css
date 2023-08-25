@@ -1,0 +1,120 @@
+input{
+    margin: 1%;
+  }
+  .logonav{
+    width:auto;
+    height:50px;
+    margin-bottom:1%;
+  }
+  #story{
+    text-align: center;
+    margin-left: 30%;
+    margin-right:30%;
+  }
+  #mission{
+    color:white;
+  }
+  #missionwhy{
+    margin-bottom: 2%;
+  }
+  #userform{
+    text-align: center;
+    align-items: center;
+  }
+  input:invalid:required {
+    border: 2px dashed red;
+  }
+  
+  input:valid {
+    border: 2px solid black;
+  }
+  
+  #plan{
+    text-align: center;
+  }
+  .modalcontact{
+    text-align: center;
+    align-items: center;
+  }
+  button{
+    background-color: #B22222;
+    color:white;
+    margin-top: 2%;
+  }
+  
+  #display-container{
+    display:flex;
+  }
+  .spinner-grow{
+    display: none;
+  }
+  .gif{
+    display:none;  
+  }
+  #footer-row{
+    float: right;
+  }
+  a{
+    color:black;
+  }
+  h1{
+    text-align: center;
+  }
+  #clean{
+    text-align: center;
+  }
+  
+  
+  .card-body{
+    overflow: hidden;
+  }
+  #logo{
+    height:60px;
+    width:auto;
+  }
+  
+  #idea{
+    height:300px;
+    width:400px;
+  }
+  #price{
+    text-align: center;
+  }
+  .card-deck{
+    margin-bottom: 2%;
+  }
+  #demo{
+    text-align: center;
+  }
+  #modalbody{
+    text-align: left;
+  }
+  .card{
+    margin-right: 1em;  
+  }
+  .card-body{
+    font:white;
+  }
+  .text-center{
+    padding: 1em;
+  }
+  
+  
+  @media only screen and (max-width: 600px) {
+    body{
+      background-color:peachpuff;    
+    }
+    .wrapper{
+      display: flex;    
+      flex-flow: column wrap;
+    }
+  
+  }
+  
+  @media only screen and (min-width: 577px) and (max-width: 960px) {
+    body{
+      background-color:	#FFFF66;
+    }
+  
+  }
+  
