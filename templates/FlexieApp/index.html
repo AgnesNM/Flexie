@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html dir="ltr" lang="en">
 <head>
 	<meta charset="utf-8">
@@ -75,17 +76,31 @@
 			<div class="brandData" id="userform">
 				<div class="text-center border border-light p-5">
 					<p class="h4 mb-4"></p>
+					
 					<div class="form-row mb-4">
-						<label data-error="wrong" data-success="right" for="upLoadDocument" minlength = "1">Upload Document:</label> 
-						<input class="form-control" id="brandName" type="text" required><br>
+						<!-- <label data-error="wrong" data-success="right" for="upLoadDocument" minlength = "1">Upload Document:</label>  -->
+						<!-- <input class="form-control" id="brandName" type="text" required><br> -->
 						<!-- <label data-error="wrong" data-success="right" for="pubMonth">Month and Year of Publication:</label> -->
 						 <!-- <input class="form-control" id="pubMonth" placeholder="yyyy-mm" required="" type="month"> -->
 						 <!-- <label data-error="wrong" data-success="right" for="contentType">Content Type:</label> -->
 						 <!-- <input class="form-control mb-4" id="contentType" required="" type="text"><br> -->
-						 <button class="btn btn-danger" id="collate" name="button" type="submit">DETECT FRAUD</button>
-					</div>
+						 <!-- <button class="btn btn-danger" id="collate" name="button" type="submit">DETECT FRAUD</button> -->
+						
+						 <form method="post">
 
-					<div class="container-fluid" id="display-container">
+							{% csrf_token %}
+				
+							{{ form.as_p }}
+				
+							<input class="btn btn-danger" id="collate" name="button" type="submit" value="DETECT FRAUD">
+				
+						</form>
+					 
+						</div>
+
+
+
+					<!-- <div class="container-fluid" id="display-container">
 						<div class="row d-flex" id="display">
 							<div class="text-center d-flex justify-content-center">
 								<div class="spinner-grow fast text-danger" role="status">
@@ -98,7 +113,7 @@
 							</div>							
 						</div>
 							
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

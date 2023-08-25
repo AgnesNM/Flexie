@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 #from FlexieApp import forms
 
 from . forms import UserInput
-# from . models import Scrapers
+from . models import FlexieUsers
 
 # Create your views here.  
 
@@ -33,7 +33,7 @@ def form_view(request):
 
             #create a new instance of the model
 
-            user_info = Scrapers(email = data["email"], username = data["username"])
+            user_info = FlexieUsers(email = data["email"], username = data["username"])
             
             #save the instance to the database
 
@@ -49,7 +49,7 @@ def form_view(request):
         form = UserInput()
         
 
-    return render(request, "ScraperApp/index.html", {"form": form})
+    return render(request, "FlexieApp/index.html", {"form": form})
    
 
 def flexie(request):
