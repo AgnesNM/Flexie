@@ -19,6 +19,6 @@ from FlexieApp import views
 
 urlpatterns = [
     path("", views.form_view, name = "form_view"),    
-    path("flexie/", include("FlexieApp.urls")), 
+    path("FlexieApp/", include("FlexieApp.urls")), 
     path('admin/', admin.site.urls),
 ]

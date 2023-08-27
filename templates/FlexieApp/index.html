@@ -31,8 +31,9 @@
 				 <button aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#basicExampleNav" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button> <!-- Collapsible content -->
 				<div class="collapse navbar-collapse" id="basicExampleNav">
 					<!-- Links -->
-                    <!-- <a class="nav-link" href="about.html">About</a> <a class="nav-link" href="pricing.html">Pricing</a> <a class="nav-link" href="contact.html">Contact</a> Dropdown -->
-					<ul class="navbar-nav ml-auto nav-flex-icons">
+                    <a class="nav-link" href="http://127.0.0.1:8000/FlexieApp/about/">About</a>
+					 
+					 <ul class="navbar-nav ml-auto nav-flex-icons">
 						<li class="nav-item">
 							<a class="nav-link waves-effect waves-light"><i class="fab fa-twitter"></i></a>
 						</li>
@@ -78,13 +79,6 @@
 					<p class="h4 mb-4"></p>
 					
 					<div class="form-row mb-4">
-						<!-- <label data-error="wrong" data-success="right" for="upLoadDocument" minlength = "1">Upload Document:</label>  -->
-						<!-- <input class="form-control" id="brandName" type="text" required><br> -->
-						<!-- <label data-error="wrong" data-success="right" for="pubMonth">Month and Year of Publication:</label> -->
-						 <!-- <input class="form-control" id="pubMonth" placeholder="yyyy-mm" required="" type="month"> -->
-						 <!-- <label data-error="wrong" data-success="right" for="contentType">Content Type:</label> -->
-						 <!-- <input class="form-control mb-4" id="contentType" required="" type="text"><br> -->
-						 <!-- <button class="btn btn-danger" id="collate" name="button" type="submit">DETECT FRAUD</button> -->
 						
 						 <form method="post">
 
@@ -92,9 +86,14 @@
 				
 							{{ form.as_p }}
 				
-							<input class="btn btn-danger" id="collate" name="button" type="submit" value="DETECT FRAUD">
+							<input class="btn btn-danger collate" name="button" type="submit" value="DETECT FRAUD">
+							<!-- <input class="btn btn-danger collate" name="button" type="submit" value="LEARN MORE"> -->
+							<button class="btn btn-danger collate" type="button"><a href="http://127.0.0.1:8000/FlexieApp/about/">LEARN MORE</a></button> 						
+							
 				
 						</form>
+
+						
 					 
 						</div>
 

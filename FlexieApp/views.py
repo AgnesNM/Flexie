@@ -53,8 +53,14 @@ def form_view(request):
    
 
 def flexie(request):
-    return HttpResponse("Hey, this is another view in the Scraper App.")
+    return HttpResponse("Hey, this is another view in the Flexie App.")
 
+
+def about(request): 
+
+    about_dict = {"about":"The story behind Flexie"}
+
+    return render(request, "FlexieApp/about.html", context = about_dict)
 
 
 

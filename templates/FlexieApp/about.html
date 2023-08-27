@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="text/html" http-equiv="Content-Type">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="ie=edge" http-equiv="X-UA-Compatible">
+	<title>About</title>
+	<meta content="Fighting fraud in insurance" name="description">
+	<meta content="Insurance Fraud" name="keywords">
+	<meta content="telephone=yes" name="format-detection">
+	<link href="http://ajax.aspnetcdn.com/" rel="dns-prefetch">
+	<link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet"><!-- Bootstrap core CSS -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"><!-- Material Design Bootstrap -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.4/css/mdb.min.css" rel="stylesheet">
+	<link href="styles.css" rel="stylesheet" type="text/css">
+	<link href="White.jpeg" rel="icon" type="image/png">
+	<meta content="summary_large_image" name="twitter:card">
+	<meta content="" name="twitter:site">
+	<meta content="Flexie" name="twitter:title">
+	<meta content="A tool to help you detect fraudulent documents." name="twitter:description">
+	<meta content="White.jpeg" name="twitter:image:src">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <div>
+			<nav class="navbar sticky-top navbar-expand-lg navbar-dark danger-color-dark">
+				<!-- Navbar brand -->
+				<a class="navbar-brand" href="index.html"><img alt="logo" class="logonav" src=""></a> 
+				<!-- Collapse button -->
+				 <button aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#basicExampleNav" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button> <!-- Collapsible content -->
+
+			</nav>
+		</div>
+
+		<div class="container-fluid">
+			<h1>{{about}}</h1>
+			<p class="about_css">We have undertaken the task to solve the problem of fraud within the insurance ecosystem.</p>
+            <p class="about_css">We intend to detect fraud at two points or junctures. During the initial application for coverage and during the claims application. </p>
+            <p class="about_css">We'll begin with fraud detection during claim application.</p>              
+            <p class="about_css"> The later phase of the project will look at fraud detection during coverage application.</p>
+            <p class="about_css">We’ll try to cover both medical and motor insurance types in version one of our project.</p>
+            
+		</div>
+
+        <div class="form-row mb-4">
+            <div class="col-md-3 d-flex pb-4">
+                <div class="card text-center d-flex">
+                    <div class="card-body">
+                    <h5 class="card-title">A docs approach</h5>
+                    <p class="card-text">
+                        We’ll use the docs that the customer is using during the claim application process
+                    </p>
+                    </div>
+                </div> 
+            </div> 
+
+            <div class="col-md-3 d-flex pb-4">
+                <div class="card text-center d-flex">
+                    <div class="card-body">
+                    <h5 class="card-title">Flagging</h5>
+                    <p class="card-text">
+                        If the customer is found to be fraudulent, they are flagged and the model automatically denies their claim. 
+                    </p>
+                    </div>
+                </div> 
+            </div> 
+
+            <div class="col-md-3 d-flex pb-4">
+                <div class="card text-center d-flex">
+                    <div class="card-body">
+                    <h5 class="card-title">Eliminate manual decision-making</h5>
+                    <p class="card-text">
+                        The goal is to eliminate manual decision-making in the claims process'.
+                    </p>
+                    </div>
+                </div> 
+            </div> 
+
+        </div>
+
+        <div class=" modalcontact container-fluid">
+            <h1>Questions?</h1>
+            <p>We are dedicated to ensuring that using our product is as intuitive as possible</p>
+            <p>We are also here, just in case you encounter any challenges while using it.</p>
+            <p>Do you have any question regarding our product or company?</p>
+            <p>Click the button below:</p>
+        </div>
+
+        <div class="modalcontact">
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#basicExampleModal">
+                CONTACT US
+            </button>
+            <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Talk to us!</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                 </button>
+                         </div>
+                        <div id="modalbody" class="modal-body">
+                                <p>Call +254-712-227-589</p>
+                                <p>Email: ndutaabby@gmail.com</p>                                
+                     </div>
+                     <div class="modal-footer">
+                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+
+		
+	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript">
+		</script> <!-- Bootstrap tooltips -->
+		 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js" type="text/javascript">
+		</script> <!-- Bootstrap core JavaScript -->
+		 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" type="text/javascript">
+		</script> <!-- MDB core JavaScript -->
+		 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.4/js/mdb.min.js" type="text/javascript">
+		</script>
+
+		<footer class="page-footer font-small red pt-4">
+			<div class="container-fluid text-center text-md-left">
+				<div class="row">
+					<div class="col-md-6 mt-md-0 mt-3" id="cols">
+												<p>Flexie is a fraud detection tool.</p>
+					</div>
+					<hr class="clearfix w-100 d-md-none pb-3">
+				</div>
+				<div class="footer-copyright text-center py-3">
+					2023 Copyright: <a href="#">Flexie</a>
+				</div>
+			</div>
+		</footer>
+	</div>    
+    
+
+        
+        
+    
+</body>
+</html>
