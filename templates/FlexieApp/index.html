@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 {% load static %}
+
+{% load widget_tweaks %}
+
 <html dir="ltr" lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta content="text/html" http-equiv="Content-Type">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<meta content="ie=edge" http-equiv="X-UA-Compatible">
-	<title>CleanTweak</title>
+	<title>Flexie</title>
 	<meta content="Fighting fraud in insurance" name="description">
 	<meta content="Insurance Fraud" name="keywords">
 	<meta content="telephone=yes" name="format-detection">
-	<link href="http://ajax.aspnetcdn.com/" rel="dns-prefetch">
-	<link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet"><!-- Bootstrap core CSS -->
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"><!-- Material Design Bootstrap -->
+	<link href="http://ajax.aspnetcdn.com/" rel="dns-prefetch">	
+	<!-- Font Awesome -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"rel="stylesheet"/>
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+	<!-- MDB -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css"rel="stylesheet"/>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Material Design Bootstrap -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.4/css/mdb.min.css" rel="stylesheet">
-	<link href="styles.css" rel="stylesheet" type="text/css">
+	<!-- <link href="/static/css/styles.css" rel="stylesheet" type="text/css">	 -->
+	<link href="/static/css/styles.css" rel="stylesheet" type="text/css">
 	<link href="White.jpeg" rel="icon" type="image/png">
 	<meta content="summary_large_image" name="twitter:card">
 	<meta content="" name="twitter:site">
@@ -51,11 +61,15 @@
 			</nav>
 		</div>
 		<div class="container-fluid">
-			<h1>Flexie</h1>
-			<p id="clean">A tool to help you detect fraudulent documents in insurance</p>
+			<h1 class="display-1 text-center">Flexie</h1>
+			<p class="lead text-center" id="clean">A tool to help you detect fraudulent documents in insurance</p>
 			<div class="container-fluid" id="demo">
-				<!-- Button trigger modal -->
-				 <button class="btn btn-danger" data-target="#basicExampleModal" data-toggle="modal" type="button">HOW IT WORKS</button> <!-- Modal -->
+				<div class="text-center">
+					<!-- Button trigger modal -->
+					<button class="btn btn-danger center" data-target="#basicExampleModal" data-toggle="modal" type="button">HOW IT WORKS</button> <!-- Modal -->
+				</div>
+				
+				 
 				<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="basicExampleModal" role="dialog" tabindex="-1">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
@@ -78,41 +92,23 @@
 				<div class="text-center border border-light p-5">
 					<p class="h4 mb-4"></p>
 					
-					<div class="form-row mb-4">
+					<div class="form-row mb-4 form-group">
 						
-						 <form method="post">
+						 <form method="post" class="form-outline">
 
 							{% csrf_token %}
 				
 							{{ form.as_p }}
 				
-							<input class="btn btn-danger collate" name="button" type="submit" value="DETECT FRAUD">
-							<!-- <input class="btn btn-danger collate" name="button" type="submit" value="LEARN MORE"> -->
-							<button class="btn btn-danger collate" type="button"><a href="http://127.0.0.1:8000/FlexieApp/about/">LEARN MORE</a></button> 						
-							
-				
+							<label class="form-label" for="detect"></label>
+							<input class="btn btn-danger form-control form-control-lg" id="detect" name="button" type="submit" value="DETECT FRAUD">												
+							<!-- <button class="btn btn-danger btn-outline-danger btn-rounded" type="button" id="learn"><a href="http://127.0.0.1:8000/FlexieApp/about/">LEARN MORE</a></button>  -->
+							<a class="btn btn-danger" href="http://127.0.0.1:8000/FlexieApp/about/" role="button">LEARN MORE</a>
+										
 						</form>
-
-						
-					 
+		
+		 
 						</div>
-
-
-
-					<!-- <div class="container-fluid" id="display-container">
-						<div class="row d-flex" id="display">
-							<div class="text-center d-flex justify-content-center">
-								<div class="spinner-grow fast text-danger" role="status">
-									<span class="sr-only">Loading...</span>
-								</div>			
-							</div>
-							<div class="gif">
-								<img src="200w.webp" alt="gif">
-								<p>Oops, there is no data to be displayed</p>
-							</div>							
-						</div>
-							
-					</div> -->
 				</div>
 			</div>
 		</div>

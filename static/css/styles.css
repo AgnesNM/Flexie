@@ -55,10 +55,10 @@ input{
     float: right;
   }
   a{
-    color:black;
+    color:white;
   }
-  h1{
-    text-align: center;
+  h1 {
+    text-align: center;    
   }
   #clean{
     text-align: center;
@@ -102,6 +102,11 @@ input{
   .text-center{
     padding: 1em;
   }
+
+a {
+  color: black;
+  font: black;
+}
   
   
   @media only screen and (max-width: 600px) {
