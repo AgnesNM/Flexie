@@ -1,1 +1,2 @@
+#requirements
 django-widget-tweaks==1.5.0
