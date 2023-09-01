@@ -1,163 +1,62 @@
-<!DOCTYPE html>
-{% load static %}
+{% extends 'base.html' %}
 
-{% load widget_tweaks %}
-
-<html dir="ltr" lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta content="text/html" http-equiv="Content-Type">
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<meta content="ie=edge" http-equiv="X-UA-Compatible">
-	<title>Flexie</title>
-	<meta content="Fighting fraud in insurance" name="description">
-	<meta content="Insurance Fraud" name="keywords">
-	<meta content="telephone=yes" name="format-detection">
-	<link href="http://ajax.aspnetcdn.com/" rel="dns-prefetch">	
-	<!-- Font Awesome -->
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"rel="stylesheet"/>
-	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
-	<!-- MDB -->
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css"rel="stylesheet"/>
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-	<!-- Material Design Bootstrap -->
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.4/css/mdb.min.css" rel="stylesheet">
-	<!-- <link href="/static/css/styles.css" rel="stylesheet" type="text/css">	 -->
-	<link href="/static/css/styles.css" rel="stylesheet" type="text/css">
-	<link href="White.jpeg" rel="icon" type="image/png">
-	<meta content="summary_large_image" name="twitter:card">
-	<meta content="" name="twitter:site">
-	<meta content="Flexie" name="twitter:title">
-	<meta content="A tool to help you detect fraudulent documents." name="twitter:description">
-	<meta content="White.jpeg" name="twitter:image:src">
-</head>
-<body>
-	<div class="wrapper">
-		<div>
-			<nav class="navbar sticky-top navbar-expand-lg navbar-dark danger-color-dark">
-				<!-- Navbar brand -->
-				<!-- <a class="navbar-brand" href="index.html"><img alt="logo" class="logonav" src="White.png"></a> Collapse button -->
-				 <button aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#basicExampleNav" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button> <!-- Collapsible content -->
-				<div class="collapse navbar-collapse" id="basicExampleNav">
-					<!-- Links -->
-                    <a class="nav-link" href="http://127.0.0.1:8000/FlexieApp/about/">About</a>
-					 
-					 <ul class="navbar-nav ml-auto nav-flex-icons">
-						<li class="nav-item">
-							<a class="nav-link waves-effect waves-light"><i class="fab fa-twitter"></i></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link waves-effect waves-light"><i class="fab fa-facebook"></i></a>
-						</li>
-						<li class="nav-item dropdown">
-							<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink-333"><i class="fas fa-user"></i></a>
-							<div aria-labelledby="navbarDropdownMenuLink-333" class="dropdown-menu dropdown-menu-right dropdown-default">
-								<a class="dropdown-item" href="#">Sign up</a> <a class="dropdown-item" href="#">Sign in</a> <a class="dropdown-item" href="#">Something else here</a>
-							</div>
-						</li>
-					</ul><!-- Links -->
-				</div><!-- Collapsible content -->
-			</nav>
+{% block content %}
+<div class="container-fluid">
+	<h1 class="display-1 text-center">Flexie</h1>
+	<p class="lead text-center" id="clean">A tool to help you detect fraudulent documents in insurance</p>
+	<div class="container-fluid" id="demo">
+		<div class="text-center">
+			<!-- Button trigger modal -->
+			<button class="btn btn-danger center" data-target="#basicExampleModal" data-toggle="modal" type="button">HOW IT WORKS</button> <!-- Modal -->
 		</div>
-		<div class="container-fluid">
-			<h1 class="display-1 text-center">Flexie</h1>
-			<p class="lead text-center" id="clean">A tool to help you detect fraudulent documents in insurance</p>
-			<div class="container-fluid" id="demo">
-				<div class="text-center">
-					<!-- Button trigger modal -->
-					<button class="btn btn-danger center" data-target="#basicExampleModal" data-toggle="modal" type="button">HOW IT WORKS</button> <!-- Modal -->
-				</div>
-				
-				 
-				<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="basicExampleModal" role="dialog" tabindex="-1">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel">How Flexie Works</h5><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
-							</div>
-							<div class="modal-body" id="modalbody">
-								<p>Upload your document</p>								
-								<p>Click and see if it's flagged for fraud! </p>
-							</div>
-							<div class="modal-footer">
-								<button class="btn btn-danger" data-dismiss="modal" type="button">Got it</button>
-							</div>
-						</div>
+		
+		 
+		<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="basicExampleModal" role="dialog" tabindex="-1">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">How Flexie Works</h5><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+					</div>
+					<div class="modal-body" id="modalbody">
+						<p>Upload your document</p>								
+						<p>Click and see if it's flagged for fraud! </p>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-danger" data-dismiss="modal" type="button">Got it</button>
 					</div>
 				</div>
 			</div>
-
-			<div class="brandData" id="userform">
-				<div class="text-center border border-light p-5">
-					<p class="h4 mb-4"></p>
-					
-					<div class="form-row mb-4 form-group">
-						
-						 <form method="post" class="form-outline">
-
-							{% csrf_token %}
-				
-							{{ form.as_p }}
-				
-							<label class="form-label" for="detect"></label>
-							<input class="btn btn-danger form-control form-control-lg" id="detect" name="button" type="submit" value="DETECT FRAUD">												
-							<!-- <button class="btn btn-danger btn-outline-danger btn-rounded" type="button" id="learn"><a href="http://127.0.0.1:8000/FlexieApp/about/">LEARN MORE</a></button>  -->
-							<a class="btn btn-danger" href="http://127.0.0.1:8000/FlexieApp/about/" role="button">LEARN MORE</a>
-										
-						</form>
-		
-		 
-						</div>
-				</div>
-			</div>
 		</div>
-	
-		
-	
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript">
-		</script> <!-- Bootstrap tooltips -->
-		 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js" type="text/javascript">
-		</script> <!-- Bootstrap core JavaScript -->
-		 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" type="text/javascript">
-		</script> <!-- MDB core JavaScript -->
-		 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.4/js/mdb.min.js" type="text/javascript">
-		</script>
-
-		<footer class="page-footer font-small red pt-4">
-			<div class="container-fluid text-center text-md-left">
-				<div class="row">
-					<div class="col-md-6 mt-md-0 mt-3" id="cols">
-						<!-- <a href="index.html"><img alt="logo" class="logonav" src=""></a><br> -->
-						<p>Flexie is a fraud detection tool.</p>
-					</div>
-					<hr class="clearfix w-100 d-md-none pb-3">
-					<!-- <div class="col-md-6 mb-md-0 mb-3" id="footerrow">
-						<h5 class="text-uppercase"></h5>
-						<ul class="list-unstyled">
-							<li>
-								<a href="about.html">About</a>
-							</li>
-							<li>
-								<a href="pricing.html">Pricing</a>
-							</li>
-							<li>
-								<a href="contact.html">Contact</a>
-							</li>
-						</ul>
-					</div> -->
-				</div>
-				<div class="footer-copyright text-center py-3">
-					2023 Copyright: <a href="#">Flexie</a>
-				</div>
-			</div>
-		</footer>
 	</div>
-	<script src="config.js" type="text/javascript"></script>
-	<script src="scripts4.js" type="text/javascript">
-	</script>
-</body>
-</html>
+
+	<div class="brandData" id="userform">
+		<div class="text-center border border-light p-5">
+			<p class="h4 mb-4"></p>
+			
+			<div class="form-row mb-4 form-group">
+				
+				 <form method="post" class="form-outline">
+
+					{% csrf_token %}
+		
+					{{ form.as_p }}
+		
+					<label class="form-label" for="detect"></label>
+					<input class="btn btn-danger form-control form-control-lg" id="detect" name="button" type="submit" value="DETECT FRAUD">												
+					<!-- <button class="btn btn-danger btn-outline-danger btn-rounded" type="button" id="learn"><a href="http://127.0.0.1:8000/FlexieApp/about/">LEARN MORE</a></button>  -->
+					<a class="btn btn-danger" href="http://127.0.0.1:8000/FlexieApp/about/" role="button">LEARN MORE</a>
+								
+				</form>
+
+ 
+				</div>
+		</div>
+	</div>
+</div>
+{% endblock content %}
+	
+		
+	
+		
+	
+		
