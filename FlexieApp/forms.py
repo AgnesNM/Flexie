@@ -1,8 +1,10 @@
 from django import forms
 
-class UserInput(forms.Form):
-    username = forms.CharField()
-    email = forms.EmailField() 
-    password = forms.CharField(widget=forms.PasswordInput)
-    file = forms.FileField()
+class UserInput(forms.ModelForm):
+    class Meta:
+        model = FlexieUsers
+        fields = ('email', 'username', 'file')
+        widgets = {
+            'password': forms.PasswordInput(),
+        }
 
