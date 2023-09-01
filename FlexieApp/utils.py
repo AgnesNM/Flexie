@@ -1,6 +1,8 @@
 import collections
 import pandas as pd
-from . models import FlexieUsers
+from .models import FlexieUsers
+from .utils import *
+
 BENFORD_PERCENTAGES = [0, 0.301, 0.176, 0.125, 0.097, 0.079, 0.067, 0.058, 0.051, 0.046]
 
 def calculate(data):
@@ -11,7 +13,6 @@ def calculate(data):
     fit the Benford Distribution.
     Results are returned as a list of dictionaries.
     """
-
     results = []
 
     first_digits = list(map(lambda n: str(n)[0], data))
@@ -36,41 +37,76 @@ def calculate(data):
 
     return results
 
-def print_as_table(benford_table):
-    
-        width = 59
-    
-        print("-" * width)
-        print("|   |      Data       |    Benford      |    Difference   |")
-        print("| n |  Freq     Pct   |  Freq     Pct   |  Freq     Pct   |")
-        print("-" * width)
-    
-        for item in benford_table:
-    
-            print("| {} | {:6.0f} | {:6.2f} | {:6.0f} | {:6.2f} | {:6.0f} | {:6.2f} |".format(item["n"],
-                                    item["data_frequency"],
-                                    item["data_frequency_percent"] * 100,
-                                    item["benford_frequency"],
-                                    item["benford_frequency_percent"] * 100,
-                                    item["difference_frequency"],
-                                    item["difference_frequency_percent"] * 100))
-    
-        print("-" * width)
 
-def print_as_graph(benford_table):
-        
-            print()
-            print("Benford Graph")
-            print()
-        
-            for item in benford_table:
-        
-                print("{:2d} {:6.2f} {:6.2f} {}".format(item["n"],
-                                        item["data_frequency_percent"] * 100,
-                                        item["benford_frequency_percent"] * 100,
-                                        "#" * int(item["data_frequency_percent"] * 200)))
-        
-            print()
-            print("  Data  Benford")
-            print("  Freq. Freq.")
-            print()
+def get_data(userObject):
+    user_info = userObject.objects.last()
+    data = user_info.file
+    
+    # get all the data from the csv file and extract a list of numbers
+    df = pd.read_csv(data)
+    numerical_data = df.select_dtypes(include=['number']).values.flatten().tolist()
+    return numerical_data
+
+
+def generate_table_html(benford_table):
+    table_html = """
+    <table>
+        <tr>
+            <th>n</th>
+            <th>Data Freq</th>
+            <th>Data Pct</th>
+            <th>Benford Freq</th>
+            <th>Benford Pct</th>
+            <th>Difference Freq</th>
+            <th>Difference Pct</th>
+        </tr>
+    """
+
+    for item in benford_table:
+        table_html += f"""
+        <tr>
+            <td>{item["n"]}</td>
+            <td>{item["data_frequency"]}</td>
+            <td>{item["data_frequency_percent"] * 100:.2f}%</td>
+            <td>{item["benford_frequency"]}</td>
+            <td>{item["benford_frequency_percent"] * 100:.2f}%</td>
+            <td>{item["difference_frequency"]}</td>
+            <td>{item["difference_frequency_percent"] * 100:.2f}%</td>
+        </tr>
+        """
+
+    table_html += "</table>"
+    return table_html
+
+
+def generate_graph_html(benford_table):
+    graph_html = """
+    <div id="benford-graph">
+        <h2>Benford Graph</h2>
+        <div class="bar-chart">
+    """
+
+    for item in benford_table:
+        data_pct = item["data_frequency_percent"] * 100
+        benford_pct = item["benford_frequency_percent"] * 100
+        bar_width = int(data_pct * 2)  # Adjust the multiplier for the bar width as needed
+
+        graph_html += f"""
+            <div class="bar">
+                <div class="data-bar" style="width: {bar_width}px;"></div>
+                <div class="label">{item["n"]}</div>
+                <div class="label">{data_pct:.2f}%</div>
+                <div class="label">{benford_pct:.2f}%</div>
+            </div>
+        """
+
+    graph_html += """
+        </div>
+        <div class="legend">
+            <div>Data</div>s
+            <div>Benford</div>
+        </div>
+    </div>
+    """
+
+    return graph_html

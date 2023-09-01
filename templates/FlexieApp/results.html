@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+
+{% block context %}
+    <h1>Benford's Law Analysis Result</h1>
+    <style>
+        /* Add your CSS styles for the table and graph here */
+        .bar-chart {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .data-bar {
+            background-color: blue; /* Change the bar color as needed */
+            height: 20px; /* Adjust the bar height as needed */
+            margin-bottom: 5px;
+        }
+
+        .label {
+            margin-top: 5px;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+    </style>
+    {{ table_html|safe }}
+    
+    {{ graph_html|safe }}
+
+{% endblock context %}
+    

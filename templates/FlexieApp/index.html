@@ -29,29 +29,69 @@
 		</div>
 	</div>
 
-	<div class="brandData" id="userform">
-		<div class="text-center border border-light p-5">
-			<p class="h4 mb-4"></p>
-			
-			<div class="form-row mb-4 form-group">
+	
+	{% if table_html %}
+		<h1>Benford's Law Analysis Result</h1>
+		<style>
+			/* Add your CSS styles for the table and graph here */
+			.bar-chart {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: flex-end;
+			}
+
+			.bar {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.data-bar {
+				background-color: blue; /* Change the bar color as needed */
+				height: 20px; /* Adjust the bar height as needed */
+				margin-bottom: 5px;
+			}
+
+			.label {
+				margin-top: 5px;
+			}
+
+			.legend {
+				display: flex;
+				justify-content: space-between;
+				margin-top: 10px;
+			}
+		</style>
+		{{ table_html|safe }}
+		
+		{{ graph_html|safe }}
+
+	{% else %}
+		<div class="brandData" id="userform">
+			<div class="text-center border border-light p-5">
+				<p class="h4 mb-4"></p>
 				
-				 <form method="post" class="form-outline">
+				<div class="form-row mb-4 form-group">
+					
+					<form method="post" class="form-outline">
 
-					{% csrf_token %}
-		
-					{{ form.as_p }}
-		
-					<label class="form-label" for="detect"></label>
-					<input class="btn btn-danger form-control form-control-lg" id="detect" name="button" type="submit" value="DETECT FRAUD">												
-					<!-- <button class="btn btn-danger btn-outline-danger btn-rounded" type="button" id="learn"><a href="http://127.0.0.1:8000/FlexieApp/about/">LEARN MORE</a></button>  -->
-					<a class="btn btn-danger" href="http://127.0.0.1:8000/FlexieApp/about/" role="button">LEARN MORE</a>
-								
-				</form>
+						{% csrf_token %}
+			
+						{{ form.as_p }}
+			
+						<label class="form-label" for="detect"></label>
+						<input class="btn btn-danger form-control form-control-lg" id="detect" name="button" type="submit" value="DETECT FRAUD">												
+						<!-- <button class="btn btn-danger btn-outline-danger btn-rounded" type="button" id="learn"><a href="http://127.0.0.1:8000/FlexieApp/about/">LEARN MORE</a></button>  -->
+						<a class="btn btn-danger" href="http://127.0.0.1:8000/FlexieApp/about/" role="button">LEARN MORE</a>
+									
+					</form>
 
- 
-				</div>
+					</div>
+			</div>
 		</div>
-	</div>
+	{% endif %}
+		
 </div>
 {% endblock content %}
 	

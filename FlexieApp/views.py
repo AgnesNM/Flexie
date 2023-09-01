@@ -1,59 +1,53 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
-
-#from FlexieApp import forms
-
 from . forms import UserInput
 from . models import FlexieUsers
 
-# Create your views here.  
 
 def form_view(request):
+    """takes user input and renders the results page
 
-    # if this is a POST request we need to process the form data
+    Args:
+        request (POST): form data
 
-    if request.method == "POST":
-
-        # create a form instance and populate it with data from the request:        
-
-        form = UserInput(request.POST)     
-         
-
-        # check whether it's valid:
-
+    Returns:
+        object: Render
+    """
+    if request.method == "POST":      
+        form = UserInput(request.POST, request.FILES)
         if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-
-            # print(form.cleaned_data["username"])
-            # print(form.cleaned_data["email"])       
-
-            data = form.cleaned_data
-
-            #create a new instance of the model
-
-            user_info = FlexieUsers(email = data["email"], username = data["username"])
-            
-            #save the instance to the database
-
-            user_info.save()
-
+            form.save()
             HttpResponseRedirect("/thanks/") 
-            
 
-    # if a GET (or any other method) we'll create a blank form
-    
     else:
-
         form = UserInput()
         
-
     return render(request, "FlexieApp/index.html", {"form": form})
    
 
-def flexie(request):
-    return HttpResponse("Hey, this is another view in the Flexie App.")
+def analysis_results(request):
+    """renders the results page
+
+    Args:
+        request (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    # Get the uploaded file
+    user_info = FlexieUsers.objects.last()
+    data = user_info.file
+
+    # Calculate Benford's Law results
+    benford_table = calculate(data)
+
+    # Generate HTML for the table and graph
+    table_html = generate_table_html(benford_table)
+    graph_html = generate_graph_html(benford_table)
+
+    # Render a template with the results
+    return render(request, 'FlexieApp/results.html', {'table_html': table_html, 'graph_html': graph_html})
 
 
 def about(request): 

@@ -5,7 +5,7 @@ from FlexieApp import views
 app_name = "FlexieApp"
 
 urlpatterns = [
-    path("", views.flexie, name = "flexie"), 
+    path("", views.form_view, name = "form_view"),
     path("about/", views.about, name = "about")
 
 ]
