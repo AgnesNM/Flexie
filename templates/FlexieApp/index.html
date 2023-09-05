@@ -98,15 +98,10 @@
 						
 						 <form method="post" class="form-outline">
 
-							{% csrf_token %}
-				
-							{{ form|crispy }}
-				
-							<label class="form-label" for="detect"></label>
-							<input class="btn btn-danger form-control form-control-lg" id="detect" name="button" type="submit" value="DETECT FRAUD">												
-							<!-- <button class="btn btn-danger btn-outline-danger btn-rounded" type="button" id="learn"><a href="http://127.0.0.1:8000/FlexieApp/about/">LEARN MORE</a></button>  -->
-							<a class="btn btn-danger" href="http://127.0.0.1:8000/FlexieApp/about/" role="button">LEARN MORE</a>
-										
+							{% csrf_token %}				
+							
+							{% crispy form form.helper %}	
+							
 						</form>
 		
 		 
