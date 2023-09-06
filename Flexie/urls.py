@@ -17,8 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from FlexieApp import views
 
-urlpatterns = [
-    path("", views.form_view, name = "form_view"),    
+urlpatterns = [  
     path("FlexieApp/", include("FlexieApp.urls")), 
     path('admin/', admin.site.urls),
+    
 ]

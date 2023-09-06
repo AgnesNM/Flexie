@@ -1,12 +1,11 @@
 from django.db import models
 
-# Create your models here.
-
 class FlexieUsers(models.Model):
     email = models.EmailField(max_length=254)
     username = models.CharField(max_length=254, default = 'scraper_users')     
-    # password = models.CharField(widget=models.PasswordInput)
-    file = models.FileField(upload_to='uploads/')
+    upload_file = models.FileField(upload_to='uploads/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.username
+

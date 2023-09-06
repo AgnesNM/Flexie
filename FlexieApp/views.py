@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from . forms import *
@@ -14,19 +14,18 @@ def index_view(request):
     Returns:
         object: Render
     """
-    if request.method == "POST":      
-        form = UserInput(request.POST, request.FILES)
+    if request.method == "POST":
+        form = FileUpload(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            HttpResponseRedirect("/thanks/") 
-
+            return HttpResponseRedirect('/results/')
     else:
-        form = UserInput()
+        form = FileUpload()
         
     return render(request, "FlexieApp/index.html", {"form": form})
    
 
-def analysis_results_view(request):
+def results_view(request):
     """renders the results page
 
     Args:
@@ -35,6 +34,7 @@ def analysis_results_view(request):
     Returns:
         _type_: _description_
     """
+
     # Get the uploaded file
     user_info = FlexieUsers.objects.last()
     data = user_info.file

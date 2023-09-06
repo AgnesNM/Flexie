@@ -1,91 +1,34 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container-fluid">
-	<h1 class="display-1 text-center">Flexie</h1>
-	<p class="lead text-center" id="clean">A tool to help you detect fraudulent documents in insurance</p>
-	<div class="container-fluid" id="demo">
-		<div class="text-center">
-			<!-- Button trigger modal -->
-			<button class="btn btn-danger center" data-target="#basicExampleModal" data-toggle="modal" type="button">HOW IT WORKS</button> <!-- Modal -->
-		</div>
-		
-		 
-		<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="basicExampleModal" role="dialog" tabindex="-1">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">How Flexie Works</h5><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
-					</div>
-					<div class="modal-body" id="modalbody">
-						<p>Upload your document</p>								
-						<p>Click and see if it's flagged for fraud! </p>
-					</div>
-					<div class="modal-footer">
-						<button class="btn btn-danger" data-dismiss="modal" type="button">Got it</button>
+	<div class="container-fluid">
+		<h1 class="display-1 text-center">Flexie</h1>
+		<p class="lead text-center" id="clean">A tool to help you detect fraudulent documents in insurance</p>
+		<div class="container-fluid" id="demo">
+			<div class="text-center">
+				<!-- Button trigger modal -->
+				<button class="btn btn-danger center" data-target="#basicExampleModal" data-toggle="modal" type="button">HOW IT WORKS</button> <!-- Modal -->
+			</div>
+			
+			
+			<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="basicExampleModal" role="dialog" tabindex="-1">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">How Flexie Works</h5><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+						</div>
+						<div class="modal-body" id="modalbody">
+							<p>Upload your document</p>								
+							<p>Click and see if it's flagged for fraud! </p>
+						</div>
+						<div class="modal-footer">
+							<button class="btn btn-danger" data-dismiss="modal" type="button">Got it</button>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="brandData" id="userform">
-		<div class="text-center border border-light p-5">
-			<p class="h4 mb-4"></p>
-			
-			<div class="form-row mb-4 form-group">
-				
-				 <form method="post" class="form-outline">
-
-					{% csrf_token %}				
-					
-					{% crispy form form.helper %}	
-					
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
-
-	
-	{% if table_html %}
-		<h1>Benford's Law Analysis Result</h1>
-		<style>
-			/* Add your CSS styles for the table and graph here */
-			.bar-chart {
-				display: flex;
-				flex-direction: row;
-				justify-content: space-between;
-				align-items: flex-end;
-			}
-
-			.bar {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-			}
-
-			.data-bar {
-				background-color: blue; /* Change the bar color as needed */
-				height: 20px; /* Adjust the bar height as needed */
-				margin-bottom: 5px;
-			}
-
-			.label {
-				margin-top: 5px;
-			}
-
-			.legend {
-				display: flex;
-				justify-content: space-between;
-				margin-top: 10px;
-			}
-		</style>
-		{{ table_html|safe }}
-		
-		{{ graph_html|safe }}
-
-	{% else %}
 		<div class="brandData" id="userform">
 			<div class="text-center border border-light p-5">
 				<p class="h4 mb-4"></p>
@@ -94,21 +37,41 @@
 					
 					<form method="post" class="form-outline">
 
-						{% csrf_token %}
-			
-						{{ form.as_p }}
-			
-						<label class="form-label" for="detect"></label>
-						<input class="btn btn-danger form-control form-control-lg" id="detect" name="button" type="submit" value="DETECT FRAUD">												
-						<!-- <button class="btn btn-danger btn-outline-danger btn-rounded" type="button" id="learn"><a href="http://127.0.0.1:8000/FlexieApp/about/">LEARN MORE</a></button>  -->
-						<a class="btn btn-danger" href="http://127.0.0.1:8000/FlexieApp/about/" role="button">LEARN MORE</a>
-									
+						{% csrf_token %}				
+						
+						{% crispy form form.helper %}	
+						
 					</form>
-
-					</div>
+					<form method="post" enctype="multipart/form-data">
+						{% csrf_token %}
+						{{ form|crispy }}
+					</form>
+				</div>
 			</div>
 		</div>
-	{% endif %}
+	</div>
+
+	<h1>Benford's Law Analysis Result</h1>
+
+	<div class="brandData" id="userform">
+		<div class="text-center border border-light p-5">
+			<p class="h4 mb-4"></p>
+			
+			<div class="form-row mb-4 form-group">
+				
+				<form method="post" class="form-outline">
+
+					{% csrf_token %}
 		
-</div>
+					{{ form.as_p }}
+		
+					<label class="form-label" for="detect"></label>
+					<input class="btn btn-danger form-control form-control-lg" id="detect" name="button" type="submit" value="DETECT FRAUD">												
+					<!-- <button class="btn btn-danger btn-outline-danger btn-rounded" type="button" id="learn"><a href="http://127.0.0.1:8000/FlexieApp/about/">LEARN MORE</a></button>  -->
+					<a class="btn btn-danger" href="http://127.0.0.1:8000/FlexieApp/about/" role="button">LEARN MORE</a>
+								
+				</form>
+			</div>
+		</div>
+	</div>
 {% endblock content %}
