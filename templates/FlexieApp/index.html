@@ -29,6 +29,24 @@
 		</div>
 	</div>
 
+	<div class="brandData" id="userform">
+		<div class="text-center border border-light p-5">
+			<p class="h4 mb-4"></p>
+			
+			<div class="form-row mb-4 form-group">
+				
+				 <form method="post" class="form-outline">
+
+					{% csrf_token %}				
+					
+					{% crispy form form.helper %}	
+					
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
 	
 	{% if table_html %}
 		<h1>Benford's Law Analysis Result</h1>
@@ -94,9 +112,3 @@
 		
 </div>
 {% endblock content %}
-	
-		
-	
-		
-	
-		
