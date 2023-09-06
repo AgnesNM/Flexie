@@ -22,7 +22,7 @@ def index_view(request):
     else:
         form = FileUpload()
         
-    return render(request, "FlexieApp/index.html", {"form": form})
+    return render(request, "index.html", {"form": form})
    
 
 def results_view(request):
@@ -47,14 +47,14 @@ def results_view(request):
     graph_html = generate_graph_html(benford_table)
 
     # Render a template with the results
-    return render(request, 'FlexieApp/results.html', {'table_html': table_html, 'graph_html': graph_html})
+    return render(request, 'results.html', {'table_html': table_html, 'graph_html': graph_html})
 
 
 def about(request): 
 
     about_dict = {"about":"The story behind Flexie"}
 
-    return render(request, "FlexieApp/about.html", context = about_dict)
+    return render(request, "about.html", context = about_dict)
 
 
 
