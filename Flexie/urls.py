@@ -20,5 +20,5 @@ from FlexieApp import views
 urlpatterns = [  
     path("FlexieApp/", include("FlexieApp.urls")), 
     path('admin/', admin.site.urls),
-    
+       
 ]

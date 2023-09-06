@@ -18,3 +18,16 @@ class UserInput(forms.Form):
         self.helper.form_action = 'index_view'
         self.helper.add_input(Submit('submit', 'Submit'))
 
+        self.helper.layout = Layout(
+            Fieldset(
+                'User Input',
+                'email',
+                'upload_file',
+            ),
+            ButtonHolder(
+                Submit('submit', 'Submit', css_class='button white')
+            )
+        )
+
+
+

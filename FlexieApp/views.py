@@ -14,15 +14,17 @@ def index_view(request):
     Returns:
         object: Render
     """
-    if request.method == "POST":
-        form = FileUpload(request.POST, request.FILES)
+    if request.method == 'POST':
+        form = FlexieForm(request.POST, request.FILES)
+
         if form.is_valid():
             form.save()
-            return redirect('results_view')
+            return HttpResponseRedirect('/results/')
+
     else:
-        form = FileUpload()
-        
-    return render(request, "index.html", {"form": form})
+        form = UserImput()
+
+    return render(request, 'index.html', {'form': form})
    
 
 def results_view(request):
@@ -34,7 +36,6 @@ def results_view(request):
     Returns:
         _type_: _description_
     """
-
     # Get the uploaded file
     user_info = FlexieUsers.objects.last()
     data = user_info.file
@@ -51,18 +52,16 @@ def results_view(request):
 
 
 def about(request): 
+    """renders the about page
+
+    Args:
+        request (_type_): _description_
+        
+    Returns:
+        _type_: _description_
+    """
 
     about_dict = {"about":"The story behind Flexie"}
 
     return render(request, "about.html", context = about_dict)
-
-
-
-
-
-
-
-
-
-
 

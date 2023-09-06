@@ -1,42 +1,6 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta content="text/html" http-equiv="Content-Type">
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<meta content="ie=edge" http-equiv="X-UA-Compatible">
-	<title>About</title>
-	<meta content="Fighting fraud in insurance" name="description">
-	<meta content="Insurance Fraud" name="keywords">
-	<meta content="telephone=yes" name="format-detection">
-	<link href="http://ajax.aspnetcdn.com/" rel="dns-prefetch">
-	<link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet"><!-- Bootstrap core CSS -->
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"><!-- Material Design Bootstrap -->
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.4/css/mdb.min.css" rel="stylesheet">
-	<link href="styles.css" rel="stylesheet" type="text/css">
-	<link href="White.jpeg" rel="icon" type="image/png">
-	<meta content="summary_large_image" name="twitter:card">
-	<meta content="" name="twitter:site">
-	<meta content="Flexie" name="twitter:title">
-	<meta content="A tool to help you detect fraudulent documents." name="twitter:description">
-	<meta content="White.jpeg" name="twitter:image:src">
-</head>
+{% extends 'base.html' %}
 
-<body>
-
-    <div class="wrapper">
-
-        <div>
-			<nav class="navbar sticky-top navbar-expand-lg navbar-dark danger-color-dark">
-				<!-- Navbar brand -->
-				<a class="navbar-brand" href="index.html"><img alt="logo" class="logonav" src=""></a> 
-				<!-- Collapse button -->
-				 <button aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#basicExampleNav" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button> <!-- Collapsible content -->
-
-			</nav>
-		</div>
-
+{% block context %}
 		<div class="container-fluid">
 			<h1>{{about}}</h1>
 			<p class="about_css">We have undertaken the task to solve the problem of fraud within the insurance ecosystem.</p>
@@ -114,41 +78,5 @@
                 </div>
             </div>
         </div>
-    </div>
-        </div>
 
-		
-	
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript">
-		</script> <!-- Bootstrap tooltips -->
-		 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js" type="text/javascript">
-		</script> <!-- Bootstrap core JavaScript -->
-		 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" type="text/javascript">
-		</script> <!-- MDB core JavaScript -->
-		 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.4/js/mdb.min.js" type="text/javascript">
-		</script>
-
-		<footer class="page-footer font-small red pt-4">
-			<div class="container-fluid text-center text-md-left">
-				<div class="row">
-					<div class="col-md-6 mt-md-0 mt-3" id="cols">
-												<p>Flexie is a fraud detection tool.</p>
-					</div>
-					<hr class="clearfix w-100 d-md-none pb-3">
-				</div>
-				<div class="footer-copyright text-center py-3">
-					2023 Copyright: <a href="#">Flexie</a>
-				</div>
-			</div>
-		</footer>
-	</div>    
-    
-
-        
-        
-    
-</body>
-</html>
+{% endblock %}
