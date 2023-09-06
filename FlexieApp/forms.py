@@ -5,39 +5,16 @@ from .models import FlexieUsers
 
 
 class UserInput(forms.Form):
+    class Meta:
+        model = FlexieUsers
+        fields = ('email', 'upload_file')
+        
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(UserInput, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.form_id = 'id-detectFraud'
-        self.helper.form_class = 'detectForms'
+        self.helper.form_id = 'id-UserInputForm'
+        self.helper.form_class = 'blueForms'
         self.helper.form_method = 'post'
-        self.helper.form_action = 'detect fraud'
-
+        self.helper.form_action = 'index_view'
         self.helper.add_input(Submit('submit', 'Submit'))
-        self.helper.add_input(Submit('learn more', 'Learn More'))
 
-
-    username = forms.CharField(
-        label = "username",
-        max_length = 80,
-        required = True,
-    )
-
-    email = forms.EmailField(
-        label = "email",
-        max_length = 80,
-        required = True,
-    )
-
-    # password = forms.CharField(
-    #     widget=forms.PasswordInput,
-    #     label = "password",
-    #     max_length = 80,
-    #     required = True,
-    # )
-
-    upload_file = forms.FileField(
-        label="upload_file", 
-        max_length=80, 
-        required=False
-        )

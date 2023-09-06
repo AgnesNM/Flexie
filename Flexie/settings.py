@@ -60,7 +60,7 @@ ROOT_URLCONF = 'Flexie.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR/"templates", BASE_DIR/"FlexieApp/templates"],
+        'DIRS': [Path(BASE_DIR/"templates"), Path(BASE_DIR/"templates/FlexieApp")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -37,36 +37,11 @@
 					
 					<form method="post" class="form-outline">
 
-						{% csrf_token %}				
-						
-						{% crispy form form.helper %}	
+						{% csrf_token %}
+						{{ form|crispy }}	
 						
 					</form>
 				</div>
-			</div>
-		</div>
-	</div>
-
-	<h1>Benford's Law Analysis Result</h1>
-
-	<div class="brandData" id="userform">
-		<div class="text-center border border-light p-5">
-			<p class="h4 mb-4"></p>
-			
-			<div class="form-row mb-4 form-group">
-				
-				<form method="post" class="form-outline">
-
-					{% csrf_token %}
-		
-					{{ form.as_p }}
-		
-					<label class="form-label" for="detect"></label>
-					<input class="btn btn-danger form-control form-control-lg" id="detect" name="button" type="submit" value="DETECT FRAUD">												
-					<!-- <button class="btn btn-danger btn-outline-danger btn-rounded" type="button" id="learn"><a href="http://127.0.0.1:8000/FlexieApp/about/">LEARN MORE</a></button>  -->
-					<a class="btn btn-danger" href="http://127.0.0.1:8000/FlexieApp/about/" role="button">LEARN MORE</a>
-								
-				</form>
 			</div>
 		</div>
 	</div>

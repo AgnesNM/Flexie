@@ -18,7 +18,7 @@ def index_view(request):
         form = FileUpload(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/results/')
+            return redirect('results_view')
     else:
         form = FileUpload()
         
