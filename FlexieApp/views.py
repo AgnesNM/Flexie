@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
-from . forms import UserInput
-from . models import FlexieUsers
+from . forms import *
+from . models import *
 
 
-def form_view(request):
+def index_view(request):
     """takes user input and renders the results page
 
     Args:
@@ -26,7 +26,7 @@ def form_view(request):
     return render(request, "FlexieApp/index.html", {"form": form})
    
 
-def analysis_results(request):
+def analysis_results_view(request):
     """renders the results page
 
     Args:
