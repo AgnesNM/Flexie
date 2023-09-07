@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .forms import UserInput
-from .utils import calculate, generate_table_html, generate_graph_html
+from .utils import *
 
 def index_view(request):
     """takes user input and renders the results page
@@ -37,11 +37,11 @@ def results_view(request):
         _type_: _description_
     """
     if request.method == 'GET':
-        data_file = request.GET.get('upload_file', None)
+        data_file = request.GET.get('upload_file')
         email = request.GET.get('email')
 
         
-        benford_table = calculate(data_file)
+        benford_table = calculate(get_data(data_file))
 
         # Generate HTML for the table and graph
         table_html = generate_table_html(benford_table)

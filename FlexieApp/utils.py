@@ -16,18 +16,6 @@ def calculate(data):
     """
     
     results = []
-    
-    if not data:
-        benford_data = []
-
-        for first_digit in range(1, 10):
-            random_factor = random.uniform(0.8, 1.2)
-            for num_count in range(1, int(1000 * BENFORD_PERCENTAGES[first_digit] * random_factor)):
-                start = first_digit * 1000
-                benford_data.append(random.randint(start, start + 1000))
-
-        data = benford_data
-
     first_digits = list(map(lambda n: str(n)[0], data))
     first_digit_frequencies = collections.Counter(first_digits)
 
@@ -51,15 +39,27 @@ def calculate(data):
     return results
 
 
-def get_data(userObject):
-    user_info = userObject.objects.last()
-    data = user_info.file
-    
-    # get all the data from the csv file and extract a list of numbers
-    df = pd.read_csv(data)
-    numerical_data = df.select_dtypes(include=['number']).values.flatten().tolist()
-    return numerical_data
+def get_data(data_file):
+    """
+    Returns a list of numbers from the data file.
+    """
+    if not data_file:
+        benford_data = []
 
+        for first_digit in range(1, 10):
+            random_factor = random.uniform(0.8, 1.2)
+            for num_count in range(1, int(1000 * BENFORD_PERCENTAGES[first_digit] * random_factor)):
+                start = first_digit * 1000
+                benford_data.append(random.randint(start, start + 1000))
+
+        data = benford_data
+    else:
+        # get all the data from the csv file and extract a list of numbers
+        df = pd.read_csv(data_file)
+        numerical_data = df.select_dtypes(include=['number']).values.flatten().tolist()
+        data = numerical_data
+
+    return data
 
 def generate_table_html(benford_table):
     table_html = """
