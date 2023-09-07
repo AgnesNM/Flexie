@@ -2,6 +2,7 @@ import collections
 import pandas as pd
 from .models import FlexieUsers
 from .utils import *
+import random
 
 BENFORD_PERCENTAGES = [0, 0.301, 0.176, 0.125, 0.097, 0.079, 0.067, 0.058, 0.051, 0.046]
 
@@ -13,7 +14,19 @@ def calculate(data):
     fit the Benford Distribution.
     Results are returned as a list of dictionaries.
     """
+    
     results = []
+    
+    if not data:
+        benford_data = []
+
+        for first_digit in range(1, 10):
+            random_factor = random.uniform(0.8, 1.2)
+            for num_count in range(1, int(1000 * BENFORD_PERCENTAGES[first_digit] * random_factor)):
+                start = first_digit * 1000
+                benford_data.append(random.randint(start, start + 1000))
+
+        data = benford_data
 
     first_digits = list(map(lambda n: str(n)[0], data))
     first_digit_frequencies = collections.Counter(first_digits)

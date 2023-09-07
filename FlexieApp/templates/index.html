@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+
 
 {% block content %}
 	<div class="container-fluid">
@@ -34,11 +37,11 @@
 				
 				<div class="form-row mb-4 form-group">
 					
-					<form method="post" class="form-outline">
+					<form method="post" class="form-outline" enctype="multipart/form-data">
 
 						{% csrf_token %}
-						{{ form|crispy }}	
-						
+						{{ form|crispy }}
+						<button class="btn btn-danger btn-block my-4" type="submit">Submit</button>
 					</form>
 				</div>
 			</div>

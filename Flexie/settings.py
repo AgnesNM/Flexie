@@ -25,7 +25,7 @@ STATIC_DIR = BASE_DIR/"static"
 SECRET_KEY = 'django-insecure-v4tg*=vb04lfca0w_7_yidu4ia2l(l@t(!u@oyebycms+4rl7y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -60,7 +60,7 @@ ROOT_URLCONF = 'Flexie.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [Path(BASE_DIR/"templates"), Path(BASE_DIR/"templates/FlexieApp")],
+        'DIRS': [Path(BASE_DIR / "templates"), Path(BASE_DIR / "FlexieApp/templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request'
             ],
         },
     },

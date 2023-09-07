@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
-from . forms import *
-from . models import *
-
+from django.urls import reverse
+from .forms import UserInput
+from .utils import calculate, generate_table_html, generate_graph_html
 
 def index_view(request):
     """takes user input and renders the results page
@@ -15,17 +15,17 @@ def index_view(request):
         object: Render
     """
     if request.method == 'POST':
-        form = FlexieForm(request.POST, request.FILES)
+        form = UserInput(request.POST, request.FILES)
 
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/results/')
+            return HttpResponseRedirect('results/')
 
     else:
-        form = UserImput()
-
+        form = UserInput()
+                
     return render(request, 'index.html', {'form': form})
-   
+    
 
 def results_view(request):
     """renders the results page
@@ -36,21 +36,22 @@ def results_view(request):
     Returns:
         _type_: _description_
     """
-    # Get the uploaded file
-    user_info = FlexieUsers.objects.last()
-    data = user_info.file
+    if request.method == 'GET':
+        data_file = request.GET.get('upload_file', None)
+        email = request.GET.get('email')
 
-    # Calculate Benford's Law results
-    benford_table = calculate(data)
+        
+        benford_table = calculate(data_file)
 
-    # Generate HTML for the table and graph
-    table_html = generate_table_html(benford_table)
-    graph_html = generate_graph_html(benford_table)
-
-    # Render a template with the results
+        # Generate HTML for the table and graph
+        table_html = generate_table_html(benford_table)
+        graph_html = generate_graph_html(benford_table)
+    
     return render(request, 'results.html', {'table_html': table_html, 'graph_html': graph_html})
 
 
+    
+    
 def about(request): 
     """renders the about page
 

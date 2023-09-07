@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
 
 {% block title %}Benford's Law Analysis{% endblock title %}
 
-{% block context %}
+{% block content %}
     <h1>Benford's Law Analysis Result</h1>
     <style>
         /* Add your CSS styles for the table and graph here */
@@ -39,5 +41,5 @@
     
     {{ graph_html|safe }}
 
-{% endblock context %}
+{% endblock content %}
     
