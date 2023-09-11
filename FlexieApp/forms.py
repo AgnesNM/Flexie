@@ -9,8 +9,13 @@ class UserInput(forms.ModelForm):
         model = FlexieUsers
         fields = ('email', 'upload_file')
         widgets = {
-            'email': forms.EmailInput(attrs={'class': 'form-control'}),
-            'upload_file': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'style': 'border: 1px solid'}),
+            'upload_file': forms.ClearableFileInput(attrs={'class': 'form-control-file', 'style': 'border: 1px solid'}),
+        }
+
+        labels = {
+            'email': 'Email Address',
+            'upload_file': 'Upload a File',
         }
         
     # def __init__(self, *args, **kwargs):

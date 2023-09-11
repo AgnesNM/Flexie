@@ -50,7 +50,7 @@ def results_view(request):
     return render(request, 'results.html', {'table_html': table_html, 'graph_html': graph_html})
 
 
-    
+
     
 def about(request): 
     """renders the about page
